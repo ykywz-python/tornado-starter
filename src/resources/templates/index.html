@@ -1,0 +1,15 @@
+{% extends "_default/base.html" %}
+
+{% block title %}Home Page{% end %}
+
+{% block body %}
+<h1>{{ message }}</h1>
+
+<h2>Features Implemented:</h2>
+<ul>
+    {% for item in items %}
+    <li>{{ item }}</li>
+    {% end %}
+</ul>
+
+{% end %}

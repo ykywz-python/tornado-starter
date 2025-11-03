@@ -1,0 +1,9 @@
+{% extends "_default/base.html" %}
+
+{% block title %}Server Error{% end %}
+
+{% block body %}
+<h1>500 - Internal Server Error</h1>
+<p>Sorry, something went wrong on our end. We have been notified and are looking into it.</p>
+<p><a href="{{ reverse_url('index') }}">Return to the home page</a></p>
+{% end %}
