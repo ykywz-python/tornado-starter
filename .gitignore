@@ -1,7 +1,7 @@
 # Python-generated files
 __pycache__/
 *.py[oc]
-build/
+# build/
 dist/
 wheels/
 *.egg-info
@@ -9,3 +9,4 @@ wheels/
 # Virtual environments
 .venv
 Tornado Starter_Data/
+plan/
