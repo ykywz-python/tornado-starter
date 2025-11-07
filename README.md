@@ -37,6 +37,11 @@ mempermudah pembuatan aplikasi web dengan tornado, DRY (Don't Repeat Yourself)
 ```
 
 ## Catatan Perubahan
+7 November 2025
+- update template admin
+- tambah tray icon buat nyembunyiin console window
+
+
 4 November 2025
 - buat project
 

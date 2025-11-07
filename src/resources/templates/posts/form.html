@@ -1,30 +1,32 @@
 {% extends "../_default/base.html" %}
 
-{% block title %}{{ "Edit Post" if post else "Create Post" }}{% end %}
+{% block content %}
+<div class="container pt-0">
 
-{% block body %}
-<h1>{{ "Edit Post" if post else "Create Post" }}</h1>
+    <h1>{{ page_title }}</h1>
+    
+    {% if errors %}
+        <div class="error-summary">
+        <strong>Please correct the following errors:</strong>
+        <ul>
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% end %}
+        </ul>
+    </div>
+    {% end %}
 
-{% if errors %}
-<div class="error-summary">
-    <strong>Please correct the following errors:</strong>
-    <ul>
-        {% for error in errors %}
-        <li>{{ error }}</li>
-        {% end %}
-    </ul>
+    <form method="post">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="{{ post['title'] if post else '' }}">
+        </div>
+        <div class="form-group">
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" rows="10">{{ post['content'] if post else '' }}</textarea>
+        </div>
+        <button type="submit">Save Post</button>
+    </form>
+    
 </div>
-{% end %}
-
-<form method="post">
-    <div class="form-group">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" value="{{ post['title'] if post else '' }}">
-    </div>
-    <div class="form-group">
-        <label for="content">Content:</label>
-        <textarea id="content" name="content" rows="10">{{ post['content'] if post else '' }}</textarea>
-    </div>
-    <button type="submit">Save Post</button>
-</form>
 {% end %}

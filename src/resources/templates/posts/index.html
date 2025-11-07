@@ -1,25 +1,34 @@
 {% extends "../_default/base.html" %}
 
-{% block title %}All Posts{% end %}
-
-{% block body %}
-<h1>Blog Posts</h1>
-<a href="{{ reverse_url('post_create') }}" class="button">Create New Post</a>
-
-<div class="post-list">
-    {% for post in posts %}
-    <div class="post-item">
-        <h2>{{ post['title'] }}</h2>
-        <p>{{ post['content'] }}</p>
-        <div class="post-actions">
-            <a href="{{ reverse_url('post_edit', post.doc_id) }}">Edit</a>
-            <form action="{{ reverse_url('post_delete', post.doc_id) }}" method="post" style="display:inline;">
-                <button type="submit" class="link-button" onclick="return confirm('Are you sure?')">Delete</button>
-            </form>
-        </div>
-    </div>
-    {% else %}
-    <p>No posts yet. Why not create one?</p>
-    {% end %}
+{% block content %}
+<div class="container pt-0">
+    <h1>Blog Posts</h1>
+    <a href="{{ reverse_url('post_create') }}" class="button">Create New Post</a>
+    
+    <table class="table post-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <td>{{ post['title'] }}</td>
+                <td>{{ post['content'] }}</td>
+                <td>
+                <a class="btn btn-primary" href="{{ reverse_url('post_edit', post.doc_id) }}">Edit</a>
+                <form action="{{ reverse_url('post_delete', post.doc_id) }}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                </form>
+                </td>
+            </tr>
+        {% else %}
+        <p>No posts yet. Why not create one?</p>
+        {% end %}
+        </tbody>
+    </table>
 </div>
 {% end %}

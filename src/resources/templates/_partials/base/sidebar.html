@@ -1,0 +1,83 @@
+<div id="sidebar" class="offcanvas-sidebar">
+    <div class="sidebar-header">
+        <a href="/" class="sidebar-logo-container">
+            <img src="{{ static_url('img/app.png') }}" alt="Logo" class="sidebar-logo">
+            <span class="sidebar-title">
+                {{ app_name }}
+            </span>
+        </a>
+        <hr class="sidebar-divider">
+    </div>
+    
+    <nav>
+        <a href="/" class="offcanvas-link {{ 'active' if current_path == reverse_url('index') else '' }}">
+            <span class="icon">
+                <i class="ri-dashboard-line"></i>
+            </span> 
+            Dashboard
+        </a>
+
+        <div class="sidebar-divider-text">
+            <span>Lainnya</span>
+        </div>        
+
+        <a href="{{ reverse_url('post_list') }}" class="offcanvas-link {{ 'active' if current_path.startswith('/post') else '' }}">
+            <span class="icon">🔑</span> 
+            CRUD Example
+        </a>
+        
+        <!-- Dropdown Menu -->
+        <div class="offcanvas-dropdown">
+            <a href="javascript:void(0)" class="offcanvas-link dropdown-toggle">
+                <span class="icon"><i class="ri-menu-2-fill"></i></span> 
+                <span class="text">Dropdown</span>
+                <span class="dropdown-arrow">
+                    <i class="ri-arrow-right-s-fill"></i>
+                </span>
+            </a>
+            <div class="dropdown-content">
+                <a href="#" class="offcanvas-link">
+                    <span class="icon">👤</span> 
+                    Sub Menu 1
+                </a>
+                <a href="#" class="offcanvas-link">
+                    <span class="icon">👤</span> 
+                    Sub Menu 2
+                </a>                
+            </div>
+        </div>  
+
+        <div class="offcanvas-dropdown">
+            <a href="javascript:void(0)" class="offcanvas-link dropdown-toggle">
+                <span class="icon"><i class="ri-menu-2-fill"></i></span> 
+                <span class="text">Dropdown 2</span>
+                <span class="dropdown-arrow">
+                    <i class="ri-arrow-right-s-fill"></i>
+                </span>
+            </a>
+            <div class="dropdown-content">
+                <a href="#" class="offcanvas-link">
+                    <span class="icon">👤</span> 
+                    Sub Menu 1
+                </a>
+                <a href="#" class="offcanvas-link">
+                    <span class="icon">👤</span> 
+                    Sub Menu 2
+                </a>                
+            </div>
+        </div>          
+
+    </nav>
+    
+    <div class="sidebar-footer">
+        <a href="javascript:void(0);" class="offcanvas-link theme-toggle">
+            <span class="icon">🌙</span>
+            <span>Mode</span>
+        </a>
+        <a href="/" class="offcanvas-link">
+            <span class="icon">⚙️</span> 
+            Pengaturan
+        </a> 
+    </div>
+
+</div>

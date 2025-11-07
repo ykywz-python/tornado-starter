@@ -2,27 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ static_url('css/style.css') }}">
-    <title>{% block title %}Tornado Starter{% end %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{% block title %} {{ page_title }} {% end %}</title>
+    {% include "../_partials/base/css.html" %}
 </head>
 <body>
-    <header class="container">
-        <nav>
-            <ul>
-                <li><a href="{{ reverse_url('index') }}" class="{{ 'active' if current_path == reverse_url('index') else '' }}">Home</a></li>
-                <li><a href="{{ reverse_url('about') }}" class="{{ 'active' if current_path == reverse_url('about') else '' }}">About</a></li>
-                <li><a href="{{ reverse_url('contact') }}" class="{{ 'active' if current_path == reverse_url('contact') else '' }}">Contact</a></li>
-                <li><a href="{{ reverse_url('post_list') }}" class="{{ 'active' if current_path.startswith('/post') else '' }}">Blog</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main class="container">
-        {% if flash_message %}
-        <div class="flash-message">
-            {{ flash_message }}
+        
+    {% include "../_partials/base/sidebar.html" %}
+    
+    <main class="main-content">
+        <div class="container">
+            
+            {% if not with_out_header %}
+                {% include "../_partials/base/header.html" %}
+            {% end %}
+            
+            {% if flash_message %}
+            <div class="alert alert-success">
+                {{ flash_message }}
+            </div>
+            {% end %}
+
+            {% block content %}{% end %}
         </div>
-        {% end %}
-        {% block body %}{% end %}
     </main>
+    
+    {% include "../_partials/base/navbar.html" %}
+    
+    <div id="sidebar-overlay" class="overlay" data-action="close"></div>
+
+    {% include "../_partials/base/js.html" %}
 </body>
 </html>

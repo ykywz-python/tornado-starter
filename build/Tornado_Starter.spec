@@ -33,7 +33,7 @@ exe = EXE(
     codesign_identity=None,
     entitlements_file=None,
     version='version.py',
-    icon=['D:\\laragon\\www\\tornado-starter\\src\\resources\\static\\images\\app.ico'],
+    icon=['D:\\laragon\\www\\tornado-starter\\src\\resources\\static\\img\\app.ico'],
 )
 coll = COLLECT(
     exe,

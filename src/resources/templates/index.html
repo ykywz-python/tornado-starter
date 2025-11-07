@@ -1,15 +1,84 @@
 {% extends "_default/base.html" %}
 
-{% block title %}Home Page{% end %}
+{% block content %}
 
-{% block body %}
-<h1>{{ message }}</h1>
+<div class="container pt-0">
+    <h2>Ringkasan Statistik</h2>
+    
+    <div class="stats-grid">
+        
+        <div class="card">
+            <h3 class="text-secondary">Total Video Diurus</h3>
+            <p class="stat-number text-accent-primary">1.234</p>
+            <p class="text-muted">Peningkatan 12% dari bulan lalu.</p>
+        </div>
 
-<h2>Features Implemented:</h2>
-<ul>
-    {% for item in items %}
-    <li>{{ item }}</li>
-    {% end %}
-</ul>
+        <div class="card">
+            <h3 class="text-secondary">API Key Aktif</h3>
+            <p class="stat-number text-accent-secondary">5</p>
+            <p class="text-muted">Batas penggunaan harian: 70%</p>
+        </div>
+
+        <div class="card">
+            <h3 class="text-secondary">Tugas Tertunda</h3>
+            <p class="stat-number text-accent-warning">7</p>
+            <p class="text-muted">Perlu tindakan segera.</p>
+        </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="card bg-tertiary">
+        <h3 class="text-primary">Analisis Video Terakhir</h3>
+        <p class="text-secondary">Daftar video yang baru saja dianalisis oleh tool Anda.</p>
+    </div>
+
+    <hr class="section-divider">
+
+    <h2>Contoh Komponen Tab</h2>
+    <div class="tab-container">
+        <div class="tab-nav">
+            <a href="#" class="tab-link active" data-tab="tab1">Tab Pertama</a>
+            <a href="#" class="tab-link" data-tab="tab2">Tab Kedua</a>
+            <a href="#" class="tab-link" data-tab="tab3">Tab Ketiga</a>
+        </div>
+        <div class="tab-content card">
+            <div id="tab1" class="tab-pane active">
+                <h3>Konten Tab Pertama</h3>
+                <p>Ini adalah konten untuk tab pertama. Anda bisa meletakkan formulir, tabel, atau komponen lainnya di sini.</p>
+            </div>
+            <div id="tab2" class="tab-pane">
+                <h3>Konten Tab Kedua</h3>
+                <p>Ini adalah konten untuk tab kedua. Konten ini akan muncul saat tab kedua diklik.</p>
+            </div>
+            <div id="tab3" class="tab-pane">
+                <h3>Konten Tab Ketiga</h3>
+                <p>Ini adalah konten untuk tab ketiga.</p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <h2>Contoh Komponen Tab sebagai Link (URL Hash)</h2>
+    <div class="tab-link-container">
+        <div class="tab-nav">
+            <a href="#info" class="tab-link">Informasi</a>
+            <a href="#pengaturan" class="tab-link">Pengaturan</a>
+        </div>
+        <div class="tab-content card">
+            <div id="info" class="tab-pane">
+                <h3>Panel Informasi</h3>
+                <p>Konten ini ditampilkan karena URL di browser Anda mengandung hash <strong>#info</strong>. Coba bookmark halaman ini.</p>
+            </div>
+            <div id="pengaturan" class="tab-pane">
+                <h3>Panel Pengaturan</h3>
+                <p>Konten ini ditampilkan karena URL di browser Anda mengandung hash <strong>#pengaturan</strong>.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 
 {% end %}

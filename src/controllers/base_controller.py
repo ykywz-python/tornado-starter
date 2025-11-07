@@ -1,6 +1,8 @@
 import tornado.web
 import logging
 
+from src.config.const import APP_NAME
+
 class BaseHandler(tornado.web.RequestHandler):
     def get_flash_message(self):
         """
@@ -18,10 +20,20 @@ class BaseHandler(tornado.web.RequestHandler):
         """
         self.set_secure_cookie("flash_message", message)
 
+    def set_page_title(self, title):
+        self.page_title = title
+    
+    def set_with_out_header(self, value):
+        self.with_out_header = value        
+    
     def render(self, template_name, **kwargs):
-        kwargs['flash_message'] = self.get_flash_message()
-        # Pass the current request path to the template
+        kwargs['app_name'] = APP_NAME
+        kwargs['page_title'] = getattr(self, 'page_title', APP_NAME)      
+        kwargs['with_out_header'] = getattr(self, 'with_out_header', False)          
+
         kwargs['current_path'] = self.request.path
+        kwargs['flash_message'] = self.get_flash_message()
+
         super().render(template_name, **kwargs)
 
     def write_error(self, status_code, **kwargs):

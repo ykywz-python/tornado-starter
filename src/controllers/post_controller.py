@@ -3,12 +3,16 @@ from src.models.post_model import PostModel
 
 class PostListHandler(BaseHandler):
     def get(self):
+        self.set_page_title('CRUD Example')
+
         post_model = PostModel(self.settings['db'])
         posts = post_model.all()
         self.render("posts/index.html", posts=posts)
 
 class PostCreateHandler(BaseHandler):
     def get(self):
+        self.set_page_title('Create Post')
+        self.set_with_out_header(True)
         self.render("posts/form.html", post=None, errors=[])
 
     def post(self):
@@ -26,6 +30,8 @@ class PostCreateHandler(BaseHandler):
 
 class PostEditHandler(BaseHandler):
     def get(self, post_id):
+        self.set_page_title('Edit Post')
+        self.set_with_out_header(True)
         post_model = PostModel(self.settings['db'])
         post = post_model.get(int(post_id))
         self.render("posts/form.html", post=post, errors=[])
