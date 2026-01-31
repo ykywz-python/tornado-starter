@@ -71,4 +71,4 @@ mempermudah pembuatan aplikasi web dengan tornado, DRY (Don't Repeat Yourself)
 
 ## Beri Dukungan
 
-[![Buka Halaman Donasi](https://irfanykywz.github.io/donate/donate.png)](https://irfanykywz.github.io/donate/)
+[![Buka Halaman Donasi](https://irfanywz.github.io/donate/donate.png)](https://irfanywz.github.io/donate/)
